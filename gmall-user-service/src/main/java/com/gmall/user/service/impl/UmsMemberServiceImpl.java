@@ -1,7 +1,7 @@
-package com.gmall.gmalluser.service.impl;
+package com.gmall.user.service.impl;
 
-import com.gmall.gmalluser.mapper.UmsMemberMapper;
-import org.springframework.stereotype.Service;
+import com.alibaba.dubbo.config.annotation.Service;
+import com.gmall.user.mapper.UmsMemberMapper;
 import pojo.UmsMember;
 import service.UmsMemberService;
 

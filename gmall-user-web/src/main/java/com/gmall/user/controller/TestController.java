@@ -1,18 +1,17 @@
-package com.gmall.gmalluser.controller;
+package com.gmall.user.controller;
 
-import com.gmall.gmalluser.service.impl.UmsMemberServiceImpl;
-import pojo.UmsMember;
+import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pojo.UmsMember;
 import service.UmsMemberService;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
 public class TestController {
 
-    @Resource
+    @Reference
     UmsMemberService UmsMemberService;
 
     @RequestMapping("/")

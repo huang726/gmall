@@ -1,0 +1,15 @@
+spring:
+  dubbo:
+    application: user-web    #dubbo的服务名称
+    registry:
+      address: 192.168.190.136:2181   #zookeeper注册中心的地址
+      protocol: zookeeper  #zookeeper通讯协议名称
+    protocol:
+      name: dubbo  #dubbo通讯协议名称
+    base-package: com.gmall  #dubbo服务扫描路径
+
+logging:
+ level:
+   root: debug
+server:
+  port: 8080
