@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.gmall.manage.mapper.PmsBaseCatalog1Mapper;
 import com.gmall.manage.mapper.PmsBaseCatalog2Mapper;
 import com.gmall.manage.mapper.PmsBaseCatalog3Mapper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import pojo.PmsBaseCatalog1;
 import pojo.PmsBaseCatalog2;
 import pojo.PmsBaseCatalog3;
@@ -14,7 +15,6 @@ import java.util.List;
 
 @Service
 public class PmsBaseCatalogServiceImpl implements PmsBaseCatalogService {
-
 
     @Resource
     PmsBaseCatalog1Mapper pmsBaseCatalog1Mapper;

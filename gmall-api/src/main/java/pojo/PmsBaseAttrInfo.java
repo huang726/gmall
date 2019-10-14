@@ -1,5 +1,7 @@
 package pojo;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class PmsBaseAttrInfo implements Serializable {
     /**
      * 编号
      */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     /**
