@@ -3,17 +3,21 @@ package com.gmall.manage.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.gmall.manage.mapper.PmsBaseAttrInfoMapper;
 import com.gmall.manage.mapper.PmsBaseAttrValueMapper;
+import com.gmall.manage.mapper.PmsProductInfoMapper;
+import com.gmall.manage.mapper.PmsProductSaleAttrMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.PmsBaseAttrInfo;
 import pojo.PmsBaseAttrValue;
+import pojo.PmsProductSaleAttr;
 import service.AttrService;
 import org.apache.commons.lang3.StringUtils.*;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import javax.annotation.Resources;
 import java.util.List;
 
 @Service
@@ -24,6 +28,8 @@ public class AttrServiceImpl implements AttrService {
     @Resource
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
 
+    @Resource
+    PmsProductSaleAttrMapper pmsProductSaleAttrMapper;
     @RequestMapping("/saveAttrInfo")
     @ResponseBody
     public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo) {
@@ -62,10 +68,17 @@ public class AttrServiceImpl implements AttrService {
     }
 
     @Override
+    public List<PmsProductSaleAttr> baseSaleAttrList() {
+        return pmsProductSaleAttrMapper.selectAll();
+    }
+
+    @Override
     public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id) {
         PmsBaseAttrInfo attrInfo = new PmsBaseAttrInfo();
         attrInfo.setCatalog3Id(Long.valueOf(catalog3Id));
         List<PmsBaseAttrInfo> list = pmsBaseAttrInfoMapper.select(attrInfo);
         return list;
     }
+
+
 }

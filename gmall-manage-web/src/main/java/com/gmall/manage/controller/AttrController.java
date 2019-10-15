@@ -4,6 +4,8 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.*;
 import pojo.PmsBaseAttrInfo;
 import pojo.PmsBaseAttrValue;
+import pojo.PmsProductInfo;
+import pojo.PmsProductSaleAttr;
 import service.AttrService;
 
 import java.util.List;
@@ -29,7 +31,12 @@ public class AttrController {
 
     @RequestMapping("/getAttrValueList")
     public List<PmsBaseAttrValue> getAttrValueList(String attrId) {
-        List<PmsBaseAttrValue> list=attrService.getAttrValueList(attrId);
+        List<PmsBaseAttrValue> list = attrService.getAttrValueList(attrId);
         return list;
+    }
+
+    @RequestMapping("/baseSaleAttrList")
+    public List<PmsProductSaleAttr> baseSaleAttrList() {
+        return attrService.baseSaleAttrList();
     }
 }
