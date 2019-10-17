@@ -16,6 +16,7 @@ import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 import javax.annotation.Resources;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,7 +29,6 @@ public class AttrServiceImpl implements AttrService {
 
     @Resource
     PmsBaseSaleAttrMapper PmsBaseSaleAttrMapper;
-
 
 
     @RequestMapping("/saveAttrInfo")
@@ -78,6 +78,12 @@ public class AttrServiceImpl implements AttrService {
         PmsBaseAttrInfo attrInfo = new PmsBaseAttrInfo();
         attrInfo.setCatalog3Id(Long.valueOf(catalog3Id));
         List<PmsBaseAttrInfo> list = pmsBaseAttrInfoMapper.select(attrInfo);
+        for (PmsBaseAttrInfo pmsBaseAttrInfo : list) {
+            PmsBaseAttrValue pmsBaseAttrValue = new PmsBaseAttrValue();
+            pmsBaseAttrValue.setAttrId(pmsBaseAttrInfo.getId());
+            List<PmsBaseAttrValue> list1 = pmsBaseAttrValueMapper.select(pmsBaseAttrValue);
+            pmsBaseAttrInfo.setAttrValueList(list1);
+        }
         return list;
     }
 
