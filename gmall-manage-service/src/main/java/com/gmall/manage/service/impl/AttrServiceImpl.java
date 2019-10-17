@@ -1,16 +1,14 @@
 package com.gmall.manage.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.gmall.manage.mapper.PmsBaseAttrInfoMapper;
-import com.gmall.manage.mapper.PmsBaseAttrValueMapper;
-import com.gmall.manage.mapper.PmsProductInfoMapper;
-import com.gmall.manage.mapper.PmsProductSaleAttrMapper;
+import com.gmall.manage.mapper.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.PmsBaseAttrInfo;
 import pojo.PmsBaseAttrValue;
+import pojo.PmsBaseSaleAttr;
 import pojo.PmsProductSaleAttr;
 import service.AttrService;
 import org.apache.commons.lang3.StringUtils.*;
@@ -29,7 +27,10 @@ public class AttrServiceImpl implements AttrService {
     PmsBaseAttrValueMapper pmsBaseAttrValueMapper;
 
     @Resource
-    PmsProductSaleAttrMapper pmsProductSaleAttrMapper;
+    PmsBaseSaleAttrMapper PmsBaseSaleAttrMapper;
+
+
+
     @RequestMapping("/saveAttrInfo")
     @ResponseBody
     public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo) {
@@ -68,8 +69,8 @@ public class AttrServiceImpl implements AttrService {
     }
 
     @Override
-    public List<PmsProductSaleAttr> baseSaleAttrList() {
-        return pmsProductSaleAttrMapper.selectAll();
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
+        return PmsBaseSaleAttrMapper.selectAll();
     }
 
     @Override

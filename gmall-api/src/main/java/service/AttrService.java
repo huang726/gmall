@@ -2,6 +2,7 @@ package service;
 
 import pojo.PmsBaseAttrInfo;
 import pojo.PmsBaseAttrValue;
+import pojo.PmsBaseSaleAttr;
 import pojo.PmsProductSaleAttr;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface AttrService {
 
     public List<PmsBaseAttrValue> getAttrValueList(String attrId);
 
-    public List<PmsProductSaleAttr> baseSaleAttrList();
+    public List<PmsBaseSaleAttr> baseSaleAttrList();
 }

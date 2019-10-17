@@ -24,7 +24,16 @@ public class PmsProductSaleAttr implements Serializable {
     */
     private String saleAttrName;
 
-    public List<PmsProductSaleAttrValue> pmsProductSaleAttrValueList;
+
+    public List<PmsProductSaleAttrValue> getSpuSaleAttrValueList() {
+        return spuSaleAttrValueList;
+    }
+
+    public void setSpuSaleAttrValueList(List<PmsProductSaleAttrValue> spuSaleAttrValueList) {
+        this.spuSaleAttrValueList = spuSaleAttrValueList;
+    }
+
+    public List<PmsProductSaleAttrValue> spuSaleAttrValueList;;
 
     private static final long serialVersionUID = 1L;
 

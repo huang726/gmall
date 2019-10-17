@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class PmsProductImage implements Serializable {
 
     private String id;
-    private String productId;
+    private Long productId;
     private String imgName;
     private String imgUrl;
 
@@ -26,11 +26,11 @@ public class PmsProductImage implements Serializable {
         this.id = id;
     }
 
-    public String getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 

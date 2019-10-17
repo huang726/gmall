@@ -2,10 +2,7 @@ package com.gmall.manage.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.*;
-import pojo.PmsBaseAttrInfo;
-import pojo.PmsBaseAttrValue;
-import pojo.PmsProductInfo;
-import pojo.PmsProductSaleAttr;
+import pojo.*;
 import service.AttrService;
 
 import java.util.List;
@@ -36,7 +33,7 @@ public class AttrController {
     }
 
     @RequestMapping("/baseSaleAttrList")
-    public List<PmsProductSaleAttr> baseSaleAttrList() {
+    public List<PmsBaseSaleAttr> baseSaleAttrList() {
         return attrService.baseSaleAttrList();
     }
 }
