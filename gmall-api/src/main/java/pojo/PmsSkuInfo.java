@@ -1,6 +1,6 @@
 package pojo;
 
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -8,6 +8,9 @@ public class PmsSkuInfo implements Serializable {
     /**
      * 库存id(itemID)
      */
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column
     private Long id;
 
     /**

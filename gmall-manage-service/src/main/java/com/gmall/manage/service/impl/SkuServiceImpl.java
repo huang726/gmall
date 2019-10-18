@@ -32,27 +32,27 @@ public class SkuServiceImpl implements SkuService {
 
     @Override
     public void saveSkuInfo(PmsSkuInfo pmsSkuInfo) {
-        String index = pmsSkuInfo.getSpuId();
-        pmsSkuInfoMapper.insertSelective(pmsSkuInfo);
 
+        pmsSkuInfoMapper.insertSelective(pmsSkuInfo);
+        Long index = pmsSkuInfo.getId();
         // 插入平台属性关联
         List<PmsSkuAttrValue> skuAttrValueList = pmsSkuInfo.getSkuAttrValueList();
         for (PmsSkuAttrValue pmsSkuAttrValue : skuAttrValueList) {
-            pmsSkuAttrValue.setSkuId(Long.valueOf(index));
+            pmsSkuAttrValue.setSkuId(index);
             pmsSkuAttrValueMapper.insertSelective(pmsSkuAttrValue);
         }
 
         // 插入销售属性关联
         List<PmsSkuSaleAttrValue> skuSaleAttrValueList = pmsSkuInfo.getSkuSaleAttrValueList();
         for (PmsSkuSaleAttrValue pmsSkuSaleAttrValue : skuSaleAttrValueList) {
-            pmsSkuSaleAttrValue.setSkuId(Integer.valueOf(index));
+            pmsSkuSaleAttrValue.setSkuId(index);
             pmsSkuSaleAttrValueMapper.insertSelective(pmsSkuSaleAttrValue);
         }
 
         // 插入图片信息
         List<PmsSkuImage> skuImageList = pmsSkuInfo.getSkuImageList();
         for (PmsSkuImage pmsSkuImage : skuImageList) {
-            pmsSkuImage.setSkuId(Long.valueOf(index));
+            pmsSkuImage.setSkuId(index);
             pmsSkuImageMapper.insertSelective(pmsSkuImage);
         }
     }
@@ -66,7 +66,7 @@ public class SkuServiceImpl implements SkuService {
         PmsSkuImage pmsSkuImage = new PmsSkuImage();
         pmsSkuImage.setSkuId(Long.valueOf(id));
         List<PmsSkuImage> list = pmsSkuImageMapper.select(pmsSkuImage);
-        pmsSkuInfo.setSkuImageList(list);
-        return pmsSkuInfo;
+        skuInfo.setSkuImageList(list);
+        return skuInfo;
     }
 }

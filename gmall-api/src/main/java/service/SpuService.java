@@ -1,5 +1,6 @@
 package service;
 
+import org.apache.ibatis.annotations.Param;
 import pojo.PmsProductImage;
 import pojo.PmsProductInfo;
 import pojo.PmsProductSaleAttr;
@@ -14,4 +15,7 @@ public interface SpuService {
     public List<PmsProductSaleAttr> spuSaleAttrList(String spuId);
 
     public List<PmsProductImage> spuImageList(String spuId);
+
+    List<PmsProductSaleAttr> selectSpuSaleAttrListCheckBySku(@Param("productId") String productId, @Param("skuId") String skuId);
+
 }

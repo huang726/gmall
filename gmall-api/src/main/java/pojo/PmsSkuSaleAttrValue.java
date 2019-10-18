@@ -11,7 +11,7 @@ public class PmsSkuSaleAttrValue implements Serializable {
     /**
     * 库存单元id
     */
-    private Integer skuId;
+    private Long skuId;
 
     /**
     * 销售属性id（冗余)
@@ -43,11 +43,11 @@ public class PmsSkuSaleAttrValue implements Serializable {
         this.id = id;
     }
 
-    public Integer getSkuId() {
+    public Long getSkuId() {
         return skuId;
     }
 
-    public void setSkuId(Integer skuId) {
+    public void setSkuId(Long skuId) {
         this.skuId = skuId;
     }
 

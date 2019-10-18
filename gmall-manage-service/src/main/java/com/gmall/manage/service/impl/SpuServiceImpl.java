@@ -7,10 +7,7 @@ import com.gmall.manage.mapper.PmsProductSaleAttrMapper;
 import com.gmall.manage.mapper.PmsProductSaleAttrValueMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.w3c.dom.stylesheets.LinkStyle;
-import pojo.PmsProductImage;
-import pojo.PmsProductInfo;
-import pojo.PmsProductSaleAttr;
-import pojo.PmsProductSaleAttrValue;
+import pojo.*;
 import service.SpuService;
 
 import javax.annotation.Resource;
@@ -86,9 +83,16 @@ public class SpuServiceImpl implements SpuService {
 
     @Override
     public List<PmsProductImage> spuImageList(String spuId) {
-        PmsProductImage image=new PmsProductImage();
+        PmsProductImage image = new PmsProductImage();
         image.setProductId(Long.valueOf(spuId));
-        List<PmsProductImage> list=pmsProductImageMapper.select(image);
+        List<PmsProductImage> list = pmsProductImageMapper.select(image);
         return list;
     }
+
+    @Override
+    public List<PmsProductSaleAttr> selectSpuSaleAttrListCheckBySku(String productId, String skuId) {
+        return pmsProductSaleAttrMapper.selectSpuSaleAttrListCheckBySku(productId,skuId);
+    }
+
+
 }
