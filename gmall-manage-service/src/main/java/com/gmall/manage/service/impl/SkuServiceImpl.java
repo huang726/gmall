@@ -32,7 +32,6 @@ public class SkuServiceImpl implements SkuService {
 
     @Override
     public void saveSkuInfo(PmsSkuInfo pmsSkuInfo) {
-
         pmsSkuInfoMapper.insertSelective(pmsSkuInfo);
         Long index = pmsSkuInfo.getId();
         // 插入平台属性关联
@@ -69,4 +68,10 @@ public class SkuServiceImpl implements SkuService {
         skuInfo.setSkuImageList(list);
         return skuInfo;
     }
+
+    @Override
+    public List<PmsSkuInfo> getSkuSaleAttrValueListBySpu(Long productId) {
+        return pmsSkuInfoMapper.getSkuSaleAttrValueListBySpu(productId);
+    }
+
 }

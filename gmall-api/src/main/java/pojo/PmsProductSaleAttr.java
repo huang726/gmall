@@ -1,27 +1,28 @@
 package pojo;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.List;
 
 public class PmsProductSaleAttr implements Serializable {
     /**
-    * id
-    */
+     * id
+     */
     private Long id;
 
     /**
-    * 商品id
-    */
+     * 商品id
+     */
     private Long productId;
 
     /**
-    * 销售属性id
-    */
+     * 销售属性id
+     */
     private Long saleAttrId;
 
     /**
-    * 销售属性名称(冗余)
-    */
+     * 销售属性名称(冗余)
+     */
     private String saleAttrName;
 
 
@@ -33,7 +34,9 @@ public class PmsProductSaleAttr implements Serializable {
         this.spuSaleAttrValueList = spuSaleAttrValueList;
     }
 
-    public List<PmsProductSaleAttrValue> spuSaleAttrValueList;;
+    @Transient
+    public List<PmsProductSaleAttrValue> spuSaleAttrValueList;
+
 
     private static final long serialVersionUID = 1L;
 

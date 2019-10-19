@@ -27,7 +27,6 @@ public class PmsSkuInfo implements Serializable {
     }
 
     @Transient
-
     private String spuId;
     /**
      * 价格
@@ -62,6 +61,8 @@ public class PmsSkuInfo implements Serializable {
     private String skuDefaultImg;
 
     List<PmsSkuImage> skuImageList;
+
+
 
     public List<PmsSkuImage> getSkuImageList() {
         return skuImageList;

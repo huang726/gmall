@@ -1,27 +1,31 @@
 package pojo;
 
 import java.io.Serializable;
+import javax.persistence.Transient;
 
 public class PmsProductSaleAttrValue implements Serializable {
     /**
-    * id
-    */
+     * id
+     */
     private Long id;
 
     /**
-    * 商品id
-    */
+     * 商品id
+     */
     private Long productId;
 
     /**
-    * 销售属性id
-    */
+     * 销售属性id
+     */
     private Long saleAttrId;
 
     /**
-    * 销售属性值名称
-    */
+     * 销售属性值名称
+     */
     private String saleAttrValueName;
+
+    @Transient
+    private String isChecked;
 
     public String getIsChecked() {
         return isChecked;
@@ -30,8 +34,6 @@ public class PmsProductSaleAttrValue implements Serializable {
     public void setIsChecked(String isChecked) {
         this.isChecked = isChecked;
     }
-
-    String isChecked;
 
     private static final long serialVersionUID = 1L;
 
