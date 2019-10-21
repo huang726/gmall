@@ -15,7 +15,7 @@ public class PmsUploadUtil {
 
     public static String uploadImage(MultipartFile multipartFile) {
 
-        String imgUrl =  "http://192.168.190.136";
+        String imgUrl =  "http://127.0.0.1";
 
         // 上传图片到服务器
         // 配置fdfs的全局链接地址
