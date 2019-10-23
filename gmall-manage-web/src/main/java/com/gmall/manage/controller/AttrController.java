@@ -8,7 +8,7 @@ import service.AttrService;
 import java.util.List;
 
 @RestController
-@CrossOrigin  //跨域
+@CrossOrigin  //开启跨域
 public class AttrController {
 
     @Reference
