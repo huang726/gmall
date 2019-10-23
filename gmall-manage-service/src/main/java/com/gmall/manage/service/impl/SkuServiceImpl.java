@@ -104,7 +104,7 @@ public class SkuServiceImpl implements SkuService {
                     // 为了防止缓存穿透将，null或者空字符串值设置给redis
                     jedis.setex("sku:" + skuId + ":info", 60 * 3, JSON.toJSONString(""));
                 }
-                String lockToken = jedis.get("sku:" + skuId + ":lock");
+                String lockToken = jedis.get("sku:" + skuId + ":lock"); //获取
 
                 if (StringUtils.isNotBlank(lockToken) && lockToken.equals(token)){
                     jedis.del("sku:" + skuId + ":lock");
